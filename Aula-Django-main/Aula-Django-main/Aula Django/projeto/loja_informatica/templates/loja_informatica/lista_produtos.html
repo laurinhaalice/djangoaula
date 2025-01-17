@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Loja de Informática</title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <script src="{% static 'js/scripts.js' %}" defer></script>
+    </head>
+<body>
+    <h1>Produtos Disponíveis</h1>
+    <ul>
+        {% for produto in produtos %}
+        <li>
+            <strong>{{ produto.nome }}</strong><br>
+            Descrição: {{ produto.descricao }}<br>
+            Preço: R$ {{ produto.preco }}<br>
+            Estoque: {{ produto.estoque }}
+        </li>
+        {% empty %}
+        <p>Não há produtos disponíveis no momento.</p>
+        {% endfor %}
+    </ul>
+    <script src="{% static 'js/scripts.js' %}" defer></script>
+</body>
+</html>
